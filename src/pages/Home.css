@@ -1,0 +1,17 @@
+.f-left {
+  font-size: min(3vw, 11px);
+  text-transform: none;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 480px) {
+  .footer {
+    justify-content: space-around;
+  }
+}
