@@ -1,0 +1,4 @@
+.fb-page {
+  left: 50%;
+  transform: translateX(-50%);
+}

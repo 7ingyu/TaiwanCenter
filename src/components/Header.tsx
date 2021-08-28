@@ -26,8 +26,8 @@ const Header = ({ lang, setLang, collapse }) => {
               onDidDismiss={() => setShowPopover({ showPopover: false, event: undefined })}
             >
               <IonList>
-                {languages.map(language => (
-                  <IonItem button onClick={() => setLang(language)}>
+                {languages.map((language, i) => (
+                  <IonItem key={i} button onClick={() => setLang(language)}>
                     {language}
                   </IonItem>
                 ))}
