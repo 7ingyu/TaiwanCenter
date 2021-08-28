@@ -29,11 +29,10 @@ import './theme/variables.css';
 
 const App: React.FC = () => (
   <IonPage>
-    <Header />
     <Menu />
-
     <IonReactRouter>
-      <IonRouterOutlet>
+      <Header />
+      <IonRouterOutlet id="ion-router-outlet">
         <Route exact path="/home">
           <Home />
         </Route>
@@ -41,9 +40,8 @@ const App: React.FC = () => (
           <Redirect to="/home" />
         </Route>
       </IonRouterOutlet>
+      <Footer />
     </IonReactRouter>
-
-    <Footer />
     </IonPage>
 );
 

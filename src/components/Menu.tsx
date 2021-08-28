@@ -3,7 +3,12 @@ import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem,
 
 export const Menu: React.FC = () => (
   <>
-    <IonMenu side="start" menuId="first">
+    <IonMenu
+      side="start"
+      menuId="first"
+      contentId="ion-router-outlet"
+      onIonDidClose={() => {}}
+      onIonDidOpen={() => {}}>
       <IonHeader>
         <IonToolbar color="primary">
           <IonTitle>Start Menu</IonTitle>
