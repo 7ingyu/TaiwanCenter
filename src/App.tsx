@@ -36,26 +36,28 @@ const App: React.FC = () => {
   const [ lang, setLang ] = useState(`en`);
 
   return (
-    <LangContext.Provider value={lang}>
+    // <LangContext.Provider value={lang}>
       <IonPage>
-        <Menu />
         <IonReactRouter>
-          <Header setLang={setLang}/>
+          <Menu />
           <IonRouterOutlet id="ion-router-outlet">
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/home">
-              <About />
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
+            <IonContent fullscreen={true}>
+              <Header lang={lang} setLang={setLang} collapse={undefined}/>
+              <Route exact path="/home">
+                <Home lang={lang}/>
+              </Route>
+              <Route exact path="/about">
+                <About lang={lang}/>
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/home" />
+              </Route>
+              <Footer lang={lang}/>
+            </IonContent>
           </IonRouterOutlet>
-          <Footer />
         </IonReactRouter>
       </IonPage>
-    </LangContext.Provider>
+    // </LangContext.Provider>
   );
 };
 

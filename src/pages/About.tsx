@@ -1,25 +1,43 @@
-import { IonItem, IonLabel, IonContent, IonHeader, IonFooter,
-  IonPage, IonTitle, IonToolbar, IonButtons, IonButton,
-  IonIcon, IonMenuButton, IonGrid, IonRow, IonCol
+import { IonItem, IonCard, IonCardHeader, IonHeader, IonFooter,
+  IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonList,
+  IonIcon, IonMenuButton, IonGrid, IonRow, IonText, IonCardTitle, IonCardContent
 } from '@ionic/react';
-import { LangContext } from '../App';
+// import { LangContext } from '../App';
+import './About.css';
 
-import './Home.css';
+import about from '../data/about';
 
-const footerLeft = {
-  position: 'absolute'
-}
 
-const Home = () => {
+const About = ({ lang }) => {
   return (
-    <LangContext.Consumer>
-      {(lang) => (
-        <IonContent>
-        </IonContent>
-      )}
-    </LangContext.Consumer>
+    // <LangContext.Consumer>
+    //   {(lang) => (
+        <>
+          <IonCard>
+            <IonCardHeader>
+              <IonCardTitle>About</IonCardTitle>
+            </IonCardHeader>
+          </IonCard>
+              {about[lang].map((info, i) => {
+              if (typeof info === 'string') {
+                return (
+                  <IonCard key={i}>
+                    <IonCardContent>
+                      {info}
+                    </IonCardContent>
+                  </IonCard>
+                );
+              } else {
+                for (let section of info) {
+                  return null;
+                }
+              }
+            })}
+        </>
+    //   )}
+    // </LangContext.Consumer>
 
   );
 };
 
-export default Home;
+export default About;

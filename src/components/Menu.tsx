@@ -1,5 +1,6 @@
 import React from 'react';
-import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonRouterOutlet } from '@ionic/react';
+import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent,
+  IonList, IonItem, IonButton, IonRouterOutlet } from '@ionic/react';
 
 export const Menu: React.FC = () => (
   <>
@@ -17,9 +18,9 @@ export const Menu: React.FC = () => (
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem>Home</IonItem>
-          <IonItem>About</IonItem>
-          <IonItem>Contact</IonItem>
+          <IonItem href='/home'>Home</IonItem>
+          <IonItem href='/about'>About</IonItem>
+          <IonItem href='/contact'>Contact</IonItem>
         </IonList>
       </IonContent>
     </IonMenu>

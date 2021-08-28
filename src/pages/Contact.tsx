@@ -2,19 +2,19 @@ import { IonItem, IonLabel, IonContent, IonHeader, IonFooter,
   IonPage, IonTitle, IonToolbar, IonButtons, IonButton,
   IonIcon, IonMenuButton, IonGrid, IonRow, IonCol
 } from '@ionic/react';
-// import { LangContext } from '../App';
+import { LangContext } from '../App';
 
-import './Home.css';
+import './Contact.css';
 
-const Home = ({ lang }) => {
+const Contact = () => {
   return (
-    // <LangContext.Consumer>
-    //   {(lang) => (
+    <LangContext.Consumer>
+      {(lang) => (
         null
-    //   )}
-    // </LangContext.Consumer>
+      )}
+    </LangContext.Consumer>
 
   );
 };
 
-export default Home;
+export default Contact;
