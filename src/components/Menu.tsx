@@ -6,21 +6,20 @@ export const Menu: React.FC = () => (
     <IonMenu
       side="start"
       menuId="first"
+      type="overlay"
       contentId="ion-router-outlet"
       onIonDidClose={() => {}}
       onIonDidOpen={() => {}}>
       <IonHeader>
         <IonToolbar color="primary">
-          <IonTitle>Start Menu</IonTitle>
+          <IonTitle>Navigation</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
-          <IonItem>Menu Item</IonItem>
+          <IonItem>Home</IonItem>
+          <IonItem>About</IonItem>
+          <IonItem>Contact</IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
