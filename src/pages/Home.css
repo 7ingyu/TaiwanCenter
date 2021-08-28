@@ -1,11 +1,16 @@
-.f-left {
+.f-text {
   font-size: min(3vw, 11px);
   text-transform: none;
   text-align: left;
   vertical-align: middle;
 }
 
-.footer {
+.f-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.f-start {
   display: flex;
   justify-content: flex-end;
 }

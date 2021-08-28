@@ -37,10 +37,10 @@ const Home: React.FC = () => {
       <IonToolbar>
         <IonGrid>
           <IonRow>
-            <IonCol className="footer">
+            <IonCol className="footer f-left">
                 <IonButtons>
                   <IonButton>
-                    <div className="f-left">
+                    <div className="f-text">
                       Taiwanese American Center of Northern California<br/>
                       北加州台灣會館<br/>
                       4413 Fortran Court. San Jose, CA 95134<br/>
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                 </IonButtons>
             </IonCol>
             <IonCol>
-              <div className="footer">
+              <div className="footer f-right">
                 <IonButtons>
                   <IonButton onClick={() => {window.location.assign(externalLinks.facebook)}}>
                     <IonIcon slot="icon-only" icon={logoFacebook} />
