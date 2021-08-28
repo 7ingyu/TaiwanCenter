@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, IonItem, IonLabel, IonContent, IonHeader, IonFooter,
   IonPage, IonTitle, IonToolbar, IonButtons, IonButton,
@@ -6,6 +7,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Home from './pages/Home';
+import About from './pages/About';
 import Footer from './components/Footer';
 
 /* Core CSS required for Ionic components to work properly */
@@ -27,22 +29,34 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const App: React.FC = () => (
-  <IonPage>
-    <Menu />
-    <IonReactRouter>
-      <Header />
-      <IonRouterOutlet id="ion-router-outlet">
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-      </IonRouterOutlet>
-      <Footer />
-    </IonReactRouter>
-    </IonPage>
-);
+export const LangContext = React.createContext(`en`);
+
+const App: React.FC = () => {
+
+  const [ lang, setLang ] = useState(`en`);
+
+  return (
+    <LangContext.Provider value={lang}>
+      <IonPage>
+        <Menu />
+        <IonReactRouter>
+          <Header setLang={setLang}/>
+          <IonRouterOutlet id="ion-router-outlet">
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/home">
+              <About />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+          <Footer />
+        </IonReactRouter>
+      </IonPage>
+    </LangContext.Provider>
+  );
+};
 
 export default App;

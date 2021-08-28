@@ -3,23 +3,26 @@ import { IonApp, IonRouterOutlet, IonItem, IonLabel, IonContent, IonHeader, IonF
   IonPage, IonTitle, IonToolbar, IonButtons, IonButton,
   IonIcon, IonMenuButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { school, logoFacebook, logoYoutube } from 'ionicons/icons';
+import { LangContext } from '../App';
 import externalLinks from '../variables/externalLinks';
+import orgName from '../variables/orgName';
 
 const Footer = () => (
-  <IonFooter>
+  <LangContext.Consumer>
+    {(lang) => (
+    <IonFooter>
       <IonToolbar>
         <IonGrid>
           <IonRow>
             <IonCol className="footer f-left">
-                <IonButtons>
-                  <IonButton>
-                    <div className="f-text">
-                      Taiwanese American Center of Northern California<br/>
-                      北加州台灣會館<br/>
-                      4413 Fortran Court. San Jose, CA 95134<br/>
-                    </div>
-                  </IonButton>
-                </IonButtons>
+              <IonButtons>
+                <IonButton>
+                  <div className="f-text">
+                    {orgName[lang]}<br/>
+                    4413 Fortran Court. San Jose, CA 95134<br/>
+                  </div>
+                </IonButton>
+              </IonButtons>
             </IonCol>
             <IonCol>
               <div className="footer f-right">
@@ -40,6 +43,8 @@ const Footer = () => (
         </IonGrid>
       </IonToolbar>
     </IonFooter>
+    )}
+  </LangContext.Consumer>
 );
 
 export default Footer;
