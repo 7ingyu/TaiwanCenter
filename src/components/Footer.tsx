@@ -1,3 +1,4 @@
+import './Footer.css';
 import { IonApp, IonRouterOutlet, IonItem, IonLabel, IonContent, IonHeader, IonFooter,
   IonPage, IonTitle, IonToolbar, IonButtons, IonButton,
   IonIcon, IonMenuButton, IonGrid, IonRow, IonCol } from '@ionic/react';
