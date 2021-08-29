@@ -3,32 +3,36 @@ import { IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardContent
 import './About.css';
 
 import about from '../data/about';
+import { LangContext } from '../App';
 
-
-const About = ({ lang }) => {
+const About = () => {
   return (
-    <>
-      <IonCard>
-        <IonCardHeader>
-          <IonCardTitle>About</IonCardTitle>
-        </IonCardHeader>
-      </IonCard>
-          {about[lang].map((info, i) => {
-          if (typeof info === 'string') {
-            return (
-              <IonCard key={i}>
-                <IonCardContent>
-                  {info}
-                </IonCardContent>
-              </IonCard>
-            );
-          } else {
-            for (let section of info) {
-              return null;
+    <LangContext.Consumer>
+    {(lang) => (
+      <>
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>About</IonCardTitle>
+          </IonCardHeader>
+        </IonCard>
+            {about[lang].map((info, i) => {
+            if (typeof info === 'string') {
+              return (
+                <IonCard key={i}>
+                  <IonCardContent>
+                    {info}
+                  </IonCardContent>
+                </IonCard>
+              );
+            } else {
+              for (let section of info) {
+                return null;
+              }
             }
-          }
-        })}
-    </>
+          })}
+      </>
+    )}
+    </LangContext.Consumer>
   );
 };
 

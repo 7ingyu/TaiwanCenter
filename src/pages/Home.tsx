@@ -3,7 +3,7 @@ import Facebook from '../components/Facebook';
 
 import './Home.css';
 
-const Home = ({ lang }) => {
+const Home = () => {
   const height = window.innerWidth > 480 ? window.innerHeight - 68 - 56 : window.innerHeight - 110 - 56;
   const width = window.innerWidth;
 

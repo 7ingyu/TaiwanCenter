@@ -3,16 +3,16 @@ import { IonApp, IonRouterOutlet, IonItem, IonLabel, IonContent, IonHeader, IonF
   IonIcon, IonMenuButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import React, { useState } from 'react';
 import { close } from 'ionicons/icons';
-// import { LangContext } from '../App';
+import { LangContext } from '../App';
 import languages from '../data/languages';
 import orgName from '../data/orgName';
 
-const Header = ({ lang, setLang, collapse }) => {
+const Header = ({ changeLang, collapse }) => {
   const [popoverState, setShowPopover] = useState({ showPopover: false, event: undefined });
 
   return (
-    // <LangContext.Consumer>
-    //   {(lang) => (
+    <LangContext.Consumer>
+      {(lang) => (
         <IonHeader collapse={collapse}>
           <IonToolbar>
             <IonButtons slot="start">
@@ -27,7 +27,10 @@ const Header = ({ lang, setLang, collapse }) => {
             >
               <IonList>
                 {languages.map((language, i) => (
-                  <IonItem key={i} button onClick={() => setLang(language)}>
+                  <IonItem key={i} button onClick={() => {
+                    console.log('Header: switch to', language);
+                    changeLang(language);
+                  }}>
                     {language}
                   </IonItem>
                 ))}
@@ -51,8 +54,8 @@ const Header = ({ lang, setLang, collapse }) => {
             </IonButtons>
           </IonToolbar>
         </IonHeader>
-    //   )}
-    // </LangContext.Consumer>
+      )}
+    </LangContext.Consumer>
   );
 }
 
