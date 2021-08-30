@@ -1,5 +1,5 @@
-import { IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardContent
-} from '@ionic/react';
+import { IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
+  IonList} from '@ionic/react';
 import './About.css';
 
 import about from '../data/about';
@@ -15,21 +15,29 @@ const About = () => {
             <IonCardTitle>About</IonCardTitle>
           </IonCardHeader>
         </IonCard>
-            {about[lang].map((info, i) => {
-            if (typeof info === 'string') {
-              return (
-                <IonCard key={i}>
-                  <IonCardContent>
-                    {info}
-                  </IonCardContent>
-                </IonCard>
-              );
-            } else {
-              for (let section of info) {
-                return null;
-              }
-            }
-          })}
+        <IonCard>
+          <IonCardContent>
+            <IonList>
+              
+              {about[lang].map((info, i) => {
+                if (typeof info === 'string') {
+                  return (
+                    <IonItem key={i}>
+                      <p>
+                        {info}
+                      </p>
+                    </IonItem>
+                  );
+                } else {
+                  for (let section of info) {
+                    return null;
+                  }
+                }
+              })}
+
+            </IonList>
+          </IonCardContent>
+        </IonCard>
       </>
     )}
     </LangContext.Consumer>

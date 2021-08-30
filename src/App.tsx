@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonRouterOutlet, IonContent, IonPage } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+
+/* Components */
 import Header from './components/Header';
 import Menu from './components/Menu';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+
+/* Data */
+import pages from './pages';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -46,18 +51,17 @@ const App: React.FC = () => {
           <IonRouterOutlet id="ion-router-outlet">
             <IonContent>
               <Header changeLang={setLang} collapse={undefined}/>
-              <Route exact path="/home">
-                <Home />
+
+              {pages.map(page => (
+                <Route exact path={`/${page.en.toLowerCase()}`}>
+                  {page.component}
+                </Route>
+              ))}
+              
+              <Route exact path='/'>
+                <Redirect to={`/${pages[0].en.toLowerCase}`}/>
               </Route>
-              <Route exact path="/about">
-                <About />
-              </Route>
-              <Route exact path="/contact">
-                <Contact />
-              </Route>
-              <Route exact path="/">
-                <Redirect to="/home" />
-              </Route>
+
               <Footer />
             </IonContent>
           </IonRouterOutlet>
@@ -68,3 +72,18 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+{/* 
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route exact path="/about">
+                <About />
+              </Route>
+              <Route exact path="/contact">
+                <Contact />
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/home" /> 
+              </Route>*/}
